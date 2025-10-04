@@ -1,0 +1,7 @@
+# Nội dung file: catalog-service.yml
+server:
+  port: 9000 # Cấu hình cổng chạy cho catalog-service
+
+# Một thuộc tính ví dụ để kiểm tra
+welcome:
+  message: "Welcome to the Catalog Service configuration from Git!"
