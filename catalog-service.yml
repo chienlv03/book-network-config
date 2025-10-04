@@ -1,7 +1,22 @@
-# Nội dung file: catalog-service.yml
 server:
-  port: 9000 # Cấu hình cổng chạy cho catalog-service
+  port: 9000 # Cổng mà service sẽ chạy
 
-# Một thuộc tính ví dụ để kiểm tra
-welcome:
-  message: "Welcome to the Catalog Service configuration from Git!"
+spring:
+  # Cấu hình kết nối cơ sở dữ liệu
+  datasource:
+    # URL kết nối, trỏ đến service 'postgres-db' qua cổng 5432, database 'book_db'
+    url: jdbc:postgresql://postgres-db:5432/book_db
+    username: user # Phải khớp với POSTGRES_USER
+    password: password # Phải khớp với POSTGRES_PASSWORD
+    driver-class-name: org.postgresql.Driver
+
+  # Cấu hình JPA/Hibernate
+  jpa:
+    hibernate:
+      # Tự động cập nhật schema (tạo bảng...) dựa trên các class @Entity
+      ddl-auto: update
+    # Hiển thị các câu lệnh SQL được tạo ra trong console (hữu ích khi debug)
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
